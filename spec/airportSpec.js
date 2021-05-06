@@ -27,7 +27,14 @@ describe('Airport', () => {
     airport.clearForLanding(plane)
     airport.clearForLanding(plane)
     expect(() => { airport.clearForLanding(plane) }).toThrowError('the hangar is full')
-    
+  });
+  it('can override the default capacity',() => {
+    let airport = new Airport(3)
+    airport.clearForLanding(plane)
+    airport.clearForLanding(plane)
+    airport.clearForLanding(plane)
+    airport.clearForLanding(plane)
+    expect(() => { airport.clearForLanding(plane) }).toThrowError('the hangar is full')
   });
 });
 
