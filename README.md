@@ -1,15 +1,16 @@
 # Airport Challenge
 
-
+```
         ______
-        _\____\___
-=  = ==(____MA____)
+        _\____\____
+=  = ==(____JSMA____)
           \_____\___________________,-~~~~~~~`-.._
           /     o o o o o o o o o o o o o o o o  |\_
           `~-.__       __..----..__                  )
                 `---~~\___________/------------`````
                 =  ===(_________)
 
+```
 Instructions
 
 Feel free to use google, your notes, books, etc. but work on your own
@@ -49,6 +50,11 @@ I would like a default airport capacity that can be overridden as appropriate
 As an air traffic controller 
 To ensure safety 
 I want to prevent takeoff when weather is stormy
+```
+```
+As an air traffic controller
+To ensure safety
+I want to prevent landing when weather is stormy
 ```
 
 

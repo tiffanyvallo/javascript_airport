@@ -1,6 +1,7 @@
 'use strict';
 class Airport{
-  constructor(capacity = 2) {
+  constructor(weather, capacity = 2) {
+    this._weather = typeof weather !== 'undefined' ? weather : new Weather();
     this._hangar = []
     this._capacity = capacity
   }
@@ -11,10 +12,13 @@ class Airport{
     if(this._hangar.length > this._capacity) {
       throw new Error('Airport is over-capacity')
     }
+    if(this._weather.isStormy()) {
+      throw new Error('Plane cannot land during storm');
+    }
     this._hangar.push(plane);
   };
   clearForTakeOff(plane) {
-    if(this.isStormy()) {
+    if(this._weather.isStormy()) {
       throw new Error('Plane not taking off due to storm');
     }
     this._hangar.pop(plane);
