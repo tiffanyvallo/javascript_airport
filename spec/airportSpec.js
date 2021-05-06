@@ -14,9 +14,9 @@ describe('Airport', () => {
     airport.clearForLanding(plane);
     expect(airport.planes()).toEqual([plane]);
   });
-  it('can clear planes for takeoff', function() {
-    airport.clearForLanding(plane)
-    airport.clearForTakeoff(plane)
+  it('can clear planes for takeoff', () => {
+    airport.clearForLanding(plane);
+    airport.clearForTakeoff(plane);
     expect(airport.planes()).toEqual([]);
   });
   it('has a default capacity', () => {
@@ -35,6 +35,17 @@ describe('Airport', () => {
     airport.clearForLanding(plane)
     airport.clearForLanding(plane)
     expect(() => { airport.clearForLanding(plane) }).toThrowError('the hangar is full')
+  });
+
+  it('can check for stormy conditions', () => {
+    expect(airport.isStormy()).toBeFalsy();
+  });
+
+  describe('under stormy conditions', () => {
+    it('does not clear planes for takeoff', () => {
+      spyOn(airport,'isStormy').and.returnValue(true);
+      expect(() => { airport.clearForTakeoff(plane); }).toThrowError('cannot takeoff during storm');
+    });
   });
 });
 
