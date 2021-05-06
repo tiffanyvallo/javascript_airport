@@ -20,5 +20,4 @@ describe ('Feature Test:', function() {
     plane.takeoff(airport);
     expect(airport.planes()).not.toContain(plane)
   });
-  
 });
