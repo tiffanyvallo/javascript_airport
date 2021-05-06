@@ -9,15 +9,15 @@ class Airport{
   }
   clearForLanding(plane) {
     if(this._hangar.length > this._capacity) {
-      throw new Error('the hangar is full')
+      throw new Error('Airport is over-capacity')
     }
     this._hangar.push(plane);
   };
-  clearForTakeoff(plane) {
+  clearForTakeOff(plane) {
     if(this.isStormy()) {
-      throw new Error('cannot takeoff during storm');
+      throw new Error('Plane not taking off due to storm');
     }
-    this._hangar = [];
+    this._hangar.pop(plane);
   }
    isStormy() {
      return false;
